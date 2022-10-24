@@ -36,7 +36,8 @@ build {
     "source.amazon-ebs.al2",
     "source.amazon-ebs.al2arm",
     "source.amazon-ebs.al2gpu",
-    "source.amazon-ebs.al2inf"
+    "source.amazon-ebs.al2inf",
+    "source.amazon-ebs.al2kernel5dot10"
   ]
 
   provisioner "file" {
