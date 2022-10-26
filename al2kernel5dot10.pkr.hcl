@@ -30,19 +30,3 @@ source "amazon-ebs" "al2kernel5dot10" {
     ami_version         = "2.0.${var.ami_version}"
   }
 }
-build{
-
- provisioner "shell" {
-    cript = "scripts/install-kernel5dot10.sh"
-  }
-  
- provisioner "shell" {
-    inline_shebang    = "/bin/sh -ex"
-    xpect_disconnect = "true"
-    inline = [
-      "sudo reboot"
-    ]
-  }
-
-    
-}
