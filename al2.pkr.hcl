@@ -157,6 +157,11 @@ build {
   }
 
   provisioner "shell" {
+    environment_vars = ["AMI_TYPE=${source.name}"]
+    script           = "scripts/install-kernel5dot10.sh"
+  }
+
+  provisioner "shell" {
     environment_vars = [
       "AMI_TYPE=${source.name}",
       "AIR_GAPPED=${var.air_gapped}"
@@ -170,16 +175,6 @@ build {
     inline = [
       "sudo reboot"
     ]
-  }
-
-  provisioner "shell" {
-    environment_vars = [
-      "AMI_TYPE=${source.name}"
-    ]
-    pause_before        = "10s" # pause for starting the reboot
-    start_retry_timeout = "40s" # wait before start retry
-    max_retries         = 3
-    script              = "scripts/install-kernel5dot10.sh"
   }
 
   provisioner "shell" {
