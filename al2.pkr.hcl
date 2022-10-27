@@ -168,14 +168,6 @@ build {
     ]
     script = "scripts/enable-ecs-agent-gpu-support.sh"
   }
-  
-  provisioner "shell" {
-    inline_shebang    = "/bin/sh -ex"
-    expect_disconnect = "true"
-    inline = [
-      "sudo reboot"
-    ]
-  }
 
   provisioner "shell" {
     inline_shebang = "/bin/sh -ex"
